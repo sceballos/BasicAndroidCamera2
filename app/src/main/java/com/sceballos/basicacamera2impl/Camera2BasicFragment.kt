@@ -1,7 +1,6 @@
 package com.sceballos.basicacamera2impl
 
 import android.Manifest
-import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -240,7 +239,6 @@ class Camera2BasicFragment : Fragment(), View.OnClickListener,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<View>(R.id.picture).setOnClickListener(this)
-        view.findViewById<View>(R.id.info).setOnClickListener(this)
         textureView = view.findViewById(R.id.texture)
     }
 
@@ -669,14 +667,6 @@ class Camera2BasicFragment : Fragment(), View.OnClickListener,
     override fun onClick(view: View) {
         when (view.id) {
             R.id.picture -> lockFocus()
-            R.id.info -> {
-                if (activity != null) {
-                    AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
-                }
-            }
         }
     }
 
